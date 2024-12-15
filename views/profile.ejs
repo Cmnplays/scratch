@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <style>
+  </style>
+</head>
+<body>
+<%- include("./Partials/flashMsg.ejs") %>
+<%- include("./Partials/navBar.ejs") %>
+<div class="max-w-screen p-4 m-4 border-2 border-black rounded">
+<div class="h-28 w-28 rounded-full overflow-hidden">
+  <img class="object-cover h-full w-full" src="/images/profilePictures/<%= user.picture %>" alt="profilePic">
+</div>
+      <h2 class="text-3xl my-2">HELLO, <span class="font-bold font-serif"><%= user.fullname %></span> </h2>
+      <h3 class="text-blue-500 font-semibold tracking-tighter text-2xl mb-2"> <%= user.email %> </h3>
+      <div class="btns flex flex-col">
+      <a class="px-4 py-2 bg-orange-500 shadow rounded-3xl my-2 shadow-black shadow-md" href="/users/editProfile">Edit Account</a>
+      <a class="px-4 py-2 bg-red-500 shadow rounded-3xl my-2 shadow-black shadow-md" href="/users/logout">Logout</a>
+    </div>
+  </div>
+  <script src="/javascripts/flashMsg.js"></script>
+</body>
+</html>

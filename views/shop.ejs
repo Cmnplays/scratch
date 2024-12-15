@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bag Shop</title>
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  
+  <%- include("./Partials/flashMsg.ejs") %>
+  <%- include("./Partials/navBar.ejs") %>
+  
+<div class="flex justify-start mx-3">
+<span class="rounded-xl px-2 py-1">Filter</span>
+<select class="rounded-xl px-2 py-1" name="sort">
+<option name="popular" value="popular">Popular</option>
+<option name="latest" value="latest">Latest</option>
+</select>
+</div>
+<ul class="products-list flex items-center flex-wrap justify-center mb-20">
+<% products.reverse().forEach((product)=> {
+%>
+
+<li class="product border-2 border-black w-5/12 flex text-center flex-col items-center mx-2 my-3 rounded-md bg-white"> 
+<div class = "h-28 w-full py-1 px-2 flex items-center justify-center" > 
+<img class = "object-center max-w-full max-h-full" src = "/images/productImages/<%= product.image %>" alt="Img">
+</div>
+<div class="w-full h-px bg-black"></div>
+<div class="w-full bg-<%= product.panelColor %>-400 ">
+<div class="w-full px-1 py-0.5 flex justify-start text-<%= product.textColor %>-500 font-serif tracking-tighter font-semibold">
+<%= product.name %>
+</div>
+<div class="flex gap-4 items-center w-full justify-between px-1 py-0.5 ">
+<span> Price: <%= product.price %> </span>
+<a href="/products/addtocart/<%= product._id %>">
+  <img src="/images/icons/add_shopping_cart.png" alt"Addtocart" class="w-5 h-5"></img>
+</a>
+</div>
+</div>
+</li>
+
+<%
+}
+
+) %>
+</ul>
+</div>
+<script src="/javascripts/flashMsg.js"></script>
+</body>
+</html>

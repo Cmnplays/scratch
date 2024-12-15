@@ -1,0 +1,25 @@
+<% success = typeof success !== 'undefined' ? success : ''; %>
+<% error = typeof error !== 'undefined' ? error : ''; %>
+ <% if(success || error){%> 
+    <% 
+    if(success.length > 0){%>
+    <div class="w-screen flex justify-center">
+      <div class="flash-message bg-blue-600 text-center fixed top-0 text-xl px-2.5 py-3 mx-2 my-3 rounded-md">
+        <%= success %>
+      </div>
+      </div>
+    <% 
+    }
+  %>
+     <% 
+    if(error.length > 0){%>
+    <div class="w-screen flex justify-center">
+      <div class="flash-message bg-red-600 text-center fixed top-0 text-xl px-2.5 py-3 mx-2 my-3 rounded-md">
+        <%= error %>
+      </div>
+      </div>
+    <% 
+    }
+    %>
+ <% } %>
+

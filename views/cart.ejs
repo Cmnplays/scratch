@@ -1,0 +1,72 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products Cart</title>
+    <link rel="stylesheet" href="/stylesheets/output.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <%- include("./Partials/flashMsg.ejs") %>
+    <%- include("./Partials/navBar.ejs") %>
+    <div class="mb-20">
+     <%
+      user.cart.forEach((product)=> {
+        %>
+        <ul class="flex items-center flex-wrap justify-center">
+          <li class="product border-2 border-black w-full flex flex-col items-center mx-6 my-4 rounded-xl px-4 py-2 bg-white">
+            <div class="h-52 w-full py-1 px-2 flex items-center justify-center">
+              <img class="object-center max-w-full max-h-full" src="/images/productImages/<%= product.image %>" alt="Img">
+            </div>
+            <div class="w-full h-px bg-black"></div>
+            <div class="w-full px-1 py-0.5">
+              <div class="text-xl font-bold font-serif tracking-tighter">
+                <%= product.name %>
+              </div>
+              <div class="text-xl font-semibold">
+                Cost Calculation:
+              </div>
+              <div class="flex justify-between place-items-end">
+              <div class="text-gray-900">
+                <div>
+                  Price: Rs <%= product.price %>
+                </div>
+                <div>
+                  Discount: Rs <%= product.discount %>
+                </div>
+                <div>
+                  Vat(13%): Rs <%= (0.13*(product.price-product.discount)).toFixed(2) %>
+                </div>
+                <div>
+                  Delivery Charge: Rs 110
+                </div>
+                <div>
+                  Total Price: Rs <%= ((product.price-product.discount)+0.13*(product.price-product.discount)+110).toFixed(2) %><!-- 110 is delivery charge -->
+                </div>
+              </div>
+              <a class="mb-[4px]" href="/products/removeFromCart/<%= product._id %> ">
+                    <img src="/images/icons/remove_shopping_cart.png" alt"Remove from Cart" class="w-8 h-8"></img>
+                </a>
+              </div>
+          </li>
+        </ul>
+        <%
+      })
+      %>
+      <% if (user.cart.length > 0) {
+        %>
+        <button class="bg-blue-500 rounded-md px-5 py-2 mx-6">CheckOut</button>
+        <%
+      } else {
+        %>
+        <div class="w-screen h-1/2 text-center">
+          <h2 class="text-2xl font-mono">No items added yet</h2>
+        </div>
+        <%
+      } %>
+    </div>
+    <script src="/javascripts/flashMsg.js"></script>
+  </body>
+  </html>

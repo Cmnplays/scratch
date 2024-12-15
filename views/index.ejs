@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="/stylesheets/output.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>  
+  <%- include("./Partials/flashMsg.ejs") %>
+    <div class="min-h-screen w-screen bg-white font-serif p-6">
+      <h1 class="text-center mb-4 text-3xl font-normal">WELCOME TO <span class="font-extrabold font-mono text-blue-400">SCRATCH</span>!</h1>
+      <h2 class="text-3xl font-bold">Register</h2>
+      <form action="/users/register" method="post">
+        <input required class="px-3 bg-gray-100 bg mt-3 py-2  rounded-md border-2 border-zinc-800 " type="text" name="fullname" placeholder="Full Name" />
+        <input required class="px-3 bg-gray-100 bg mt-3 py-2 rounded-md border-2 border-zinc-800 " type="email" name="email" placeholder="Email" />
+        <input required class="px-3 bg-gray-100 bg mt-3 py-2 rounded-md border-2 border-zinc-800 " type="password" name="password" placeholder="Password" />
+        <button class="block px-5 py-2 rounded bg-blue-500 mt-3 cursor-pointer" type="submit">Create Account</button>
+      </form>
+      <hr class="my-5">
+      <h2 class="text-3xl font-bold">Login</h2>
+        <form action="/users/login" method="post">
+        <input required class="px-3 bg-gray-100 mt-3 py-2  rounded-md border-2 border-zinc-800 " type="email" name="email" placeholder="Email" />
+        <input required class="px-3 bg-gray-100 mt-3 py-2  rounded-md border-2 border-zinc-800 " type="password" name="password" placeholder="Password" />
+        <button class="block px-5 py-2 rounded bg-blue-500 mt-3 cursor-pointer" type="submit">Login Account</button>
+      </form>
+    </div>
+    <script src="/javascripts/flashMsg.js"></script>
+  </body>
+</html>

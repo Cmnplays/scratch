@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Admin panel</title></title>
+<link rel="stylesheet" href="/stylesheets/output.css" />
+<link rel="stylesheet" href="/stylesheets/style.css" />
+
+</head>
+<body>
+  <%- include("./Partials/flashMsg.ejs") %>
+  <%- include("./Partials/navBar.ejs") %>
+
+<div class="adminPanel max-w-screen min-h-screen font-serif p-3 ">
+<h1 class="text-3xl font-bold mb-4">Create New Product</h1>
+<hr />
+<form action="/products/create" method="post" enctype="multipart/form-data">
+<h2 class="text-xl font-bold mt-6">Product Details</h2>
+<input  required class="mt-2" type="file" name="productImage" />
+<input required class="py-2 px-4 mt-2 bg-gray-100 rounded-xl" type="text" name="productName" placeholder="Product Name" />
+<input required class="mt-2 py-2 px-4 bg-gray-100 rounded-xl" type="number" name="productPrice" placeholder="Product Price" />
+<input required class="mt-2 rounded-xl py-2 px-4 bg-gray-100" type="number" name="discountPrice" placeholder="Discount Price" />
+<h2 class="text-xl font-bold mt-6">Panel Details</h2>
+<input class="mt-2 rounded-xl px-4 py-2 bg-gray-100" type="text" name="bgColor" placeholder="background Color" />
+<input class="mt-2 rounded-xl px-4 py-2 bg-gray-100" type="text" name="panelColor" placeholder="Panel Color" />
+<input class="mt-2 rounded-xl bg-gray-100 px-4 py-2" type="text" name="textColor" placeholder="Text Color" />
+<input class="mt-2 rounded-xl px-3 py-2 block bg-blue-500" type="submit" value="Submit">
+</form>
+</div>
+
+<script src="/javascripts/flashMsg.js"></script>
+</body>
+</html>

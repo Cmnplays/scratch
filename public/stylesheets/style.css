@@ -1,0 +1,15 @@
+.flash-message {
+  transition: opacity 0.75s ease-in-out;
+}
+
+.flash-message.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body{
+  background: #f7fafc;
+}
+    .round{
+      border-radius: 100%;
+    }

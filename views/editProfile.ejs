@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="/stylesheets/output.css">
+</head>
+<body>
+<%- include("./Partials/navBar.ejs") %>
+    <div class="min-h-screen w-screen bg-white font-serif p-6">
+     <h2 class="text-3xl font-bold">Edit Account</h2>
+      <form action="/users/editProfile" method="post" enctype="multipart/form-data">
+       <div class="border-2 border-black overflow-hidden rounded-md px-4 py-2">
+        <h2 class="text-xl font-semibold">Add profile picture:</h2>
+         <input class="mt-2"  type="file" name="profilePic" enctype="multipart/form-data"/>
+      </div>
+        <input required class="px-3 bg-gray-100 bg mt-3 py-2  rounded-md border-2 border-zinc-800 " type="text" name="fullname" value=<%= user.fullname %> placeholder="Full Name" />
+        <input required class="px-3 bg-gray-100 bg mt-3 py-2 rounded-md border-2 border-zinc-800 " type="email" name="email" value=<%= user.email %> placeholder="Email" />
+        <button class="block px-5 py-2 rounded bg-orange-500 mt-3 cursor-pointer" type="submit">Submit</button>
+      </form>
+    </div>
+</body>
+</html>
